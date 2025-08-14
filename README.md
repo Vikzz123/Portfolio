@@ -38,4 +38,4 @@ A modern, animated portfolio website built with React, TypeScript, and Tailwind 
    ```bash
    git clone https://github.com/vikas-singh/portfolio.git
    cd portfolio
-   
+   # Portfolio
