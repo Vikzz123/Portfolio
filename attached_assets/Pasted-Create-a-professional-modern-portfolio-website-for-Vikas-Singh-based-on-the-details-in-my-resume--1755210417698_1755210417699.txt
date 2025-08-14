@@ -1,0 +1,61 @@
+Create a professional, modern portfolio website for Vikas Singh based on the details in my resume.
+
+Tech stack:
+
+React for the frontend (no backend).
+
+Tailwind CSS for styling.
+
+Fully responsive and mobile-friendly.
+
+Light/Dark mode toggle.
+
+Smooth animations and transitions for section changes and hover effects.
+
+Design style:
+
+Clean and minimal, but visually appealing with subtle animations.
+
+Professional typography and spacing.
+
+Clear section separation with consistent color palette.
+
+Sections:
+
+Home – My name, professional title (“Software Developer | MERN Stack | Java | Spring Boot | Problem Solver”), a short impactful tagline, and a “Download Resume” button (link to resume PDF).
+
+About – Short professional bio summarizing my education and work experience at Moog India Technology Center, focusing on aerospace software testing and DO-178 B/C standards.
+
+Skills – Categorized skills with icons:
+
+Languages: C, C++, Java, Python, JavaScript
+
+Frameworks & Tools: ReactJS, NodeJS, ExpressJS, TailwindCSS, Spring Boot
+
+Other Skills: Data Structures, OOPs, Linux, SQL, DevOps, Git, Github, etc.
+
+Experience – Work experience at Moog India Technology Center with bullet points for achievements.
+
+Projects – Showcase:
+
+Job Portal (MERN) – secure REST APIs (JWT), search/filter, employer dashboard, profile updates.
+
+Shopping Cart (React) – responsive UI, modular components.
+
+Parkinson’s Prediction App – ML model with Flask, high accuracy rate.
+
+Coding Profiles – Show LeetCode, HackerRank, CodeChef, Code360 stats visually with icons/links.
+
+Certifications – List certifications with provider logos (HackerRank, Udemy, Coursera, Goldman Sachs).
+
+Contact – Contact form (non-functional, just a front-end UI) + clickable icons for LinkedIn, GitHub, HackerRank, LeetCode.
+
+Extra requirements:
+
+All data should be hardcoded in a separate data.js file for easy updates.
+
+Components should be reusable and cleanly structured.
+
+Include a README.md with setup instructions.
+
+No backend, only static frontend.
