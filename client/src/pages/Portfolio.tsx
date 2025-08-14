@@ -39,42 +39,54 @@ export const Portfolio: React.FC = () => {
       
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center hero-bg relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/20"></div>
         <div className="container mx-auto px-6 text-center z-10 pt-20">
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-              Hi, I'm <span className="gradient-text bg-gradient-to-r from-yellow-400 to-pink-400 bg-clip-text text-transparent">{personalInfo.name}</span>
-            </h1>
-            <div className="text-xl md:text-2xl mb-8 text-gray-200 h-16">
-              <TypingAnimation phrases={typingPhrases} className="text-2xl" />
+            <div className="mb-6">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white text-shadow">
+                Hello, I'm <span className="gradient-text">{personalInfo.name}</span>
+              </h1>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white/90 mb-2">
+                <TypingAnimation phrases={typingPhrases} className="font-medium" />
+              </div>
             </div>
-            <p className="text-lg md:text-xl mb-12 text-gray-300 max-w-3xl mx-auto animate-slide-up">
+            <p className="text-lg md:text-xl lg:text-2xl mb-12 text-white/80 max-w-4xl mx-auto animate-slide-up leading-relaxed">
               {personalInfo.tagline}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up">
               <Button
                 onClick={handleDownloadResume}
-                className="glass-morphism px-8 py-4 text-white font-semibold hover:scale-105 transform transition-all duration-300 border border-white/20"
+                className="elevated-button glass-morphism px-10 py-4 text-white font-semibold hover:scale-110 transform transition-all duration-300 border border-white/30 text-lg"
                 variant="outline"
               >
-                <Download className="w-5 h-5 mr-2" />
+                <Download className="w-6 h-6 mr-3" />
                 Download Resume
               </Button>
               <Button
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 text-white font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg"
+                className="elevated-button bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 px-10 py-4 text-white font-semibold hover:scale-110 transform transition-all duration-300 shadow-xl text-lg"
               >
-                View My Work
+                <Briefcase className="w-6 h-6 mr-3" />
+                View My Portfolio
               </Button>
             </div>
           </div>
         </div>
         
-        {/* Animated scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        {/* Professional scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="flex flex-col items-center animate-bounce">
+            <span className="text-white/70 text-sm mb-2 font-medium">Explore More</span>
+            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center relative">
+              <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse"></div>
+            </div>
           </div>
         </div>
+        
+        {/* Floating elements for visual interest */}
+        <div className="absolute top-1/4 left-10 w-20 h-20 bg-white/10 rounded-full animate-float blur-sm"></div>
+        <div className="absolute bottom-1/4 right-10 w-16 h-16 bg-blue-400/20 rounded-full animate-float animation-delay-1000 blur-sm"></div>
+        <div className="absolute top-1/3 right-1/4 w-12 h-12 bg-purple-400/20 rounded-full animate-float animation-delay-2000 blur-sm"></div>
       </section>
 
       {/* About Section */}
@@ -85,43 +97,48 @@ export const Portfolio: React.FC = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            <Card className="glass-morphism border-0 shadow-lg animate-slide-up">
-              <CardContent className="p-8 md:p-12">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-6 text-primary">{about.title}</h3>
-                    {about.description.map((paragraph, index) => (
-                      <p key={index} className="text-lg leading-relaxed mb-6 text-muted-foreground">
+          <div className="max-w-6xl mx-auto">
+            <div className="professional-card">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h3 className="text-3xl font-bold mb-8 gradient-text">{about.title}</h3>
+                  <div className="space-y-6">
+                    {about.description.map((paragraph: string, index: number) => (
+                      <p key={index} className="text-lg leading-relaxed text-muted-foreground">
                         {paragraph}
                       </p>
                     ))}
-                    <div className="flex flex-wrap gap-4">
-                      <Badge variant="secondary" className="px-4 py-2">
-                        <i className="fas fa-map-marker-alt mr-2 text-primary" />
-                        {personalInfo.location}
-                      </Badge>
-                      <Badge variant="secondary" className="px-4 py-2">
-                        <GraduationCap className="w-4 h-4 mr-2 text-primary" />
-                        CGPA: {about.education.cgpa}
-                      </Badge>
-                    </div>
                   </div>
-                  <div className="text-center">
-                    <Card className="glass-morphism border-0 shadow-lg animate-float">
-                      <CardContent className="p-8">
-                        <div className="text-6xl mb-4">
-                          <Briefcase className="text-primary mx-auto w-16 h-16" />
-                        </div>
-                        <h4 className="text-xl font-bold mb-4 text-foreground">{experience.title}</h4>
-                        <p className="text-muted-foreground mb-4">{experience.company}</p>
-                        <div className="text-sm text-primary">{experience.duration}</div>
-                      </CardContent>
-                    </Card>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <Badge variant="secondary" className="px-5 py-3 text-sm font-medium">
+                      <i className="fas fa-map-marker-alt mr-2 text-primary" />
+                      {personalInfo.location}
+                    </Badge>
+                    <Badge variant="secondary" className="px-5 py-3 text-sm font-medium">
+                      <GraduationCap className="w-4 h-4 mr-2 text-primary" />
+                      CGPA: {about.education.cgpa}
+                    </Badge>
+                    <Badge variant="secondary" className="px-5 py-3 text-sm font-medium">
+                      <Briefcase className="w-4 h-4 mr-2 text-primary" />
+                      {about.education.degree}
+                    </Badge>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex justify-center">
+                  <div className="professional-card max-w-sm">
+                    <div className="text-center">
+                      <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <Briefcase className="text-white w-10 h-10" />
+                      </div>
+                      <h4 className="text-xl font-bold mb-4 text-foreground">{experience.title}</h4>
+                      <p className="text-muted-foreground mb-4 font-medium">{experience.company}</p>
+                      <div className="text-primary font-semibold mb-2">{experience.duration}</div>
+                      <div className="text-sm text-muted-foreground">{experience.location}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -134,70 +151,73 @@ export const Portfolio: React.FC = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           </div>
           
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-8">
               {/* Programming Languages */}
-              <Card className="glass-morphism border-0 shadow-lg hover:scale-105 transform transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <i className="fas fa-code text-5xl text-purple-600 dark:text-purple-400 mb-4" />
-                    <h3 className="text-2xl font-bold text-foreground">Languages</h3>
+              <div className="professional-card skill-glow group">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i className="fas fa-code text-2xl text-white" />
                   </div>
-                  <div className="space-y-4">
-                    {skills.languages.map((skill) => (
-                      <SkillBar
-                        key={skill.name}
-                        name={skill.name}
-                        level={skill.level}
-                        icon={skill.icon}
-                        color="purple"
-                      />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="text-2xl font-bold gradient-text">Programming Languages</h3>
+                  <p className="text-muted-foreground text-sm mt-2">Core development languages</p>
+                </div>
+                <div className="space-y-5">
+                  {skills.languages.map((skill: any) => (
+                    <SkillBar
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      icon={skill.icon}
+                      color="purple"
+                    />
+                  ))}
+                </div>
+              </div>
 
               {/* Frameworks & Tools */}
-              <Card className="glass-morphism border-0 shadow-lg hover:scale-105 transform transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <i className="fas fa-tools text-5xl text-green-600 dark:text-green-400 mb-4" />
-                    <h3 className="text-2xl font-bold text-foreground">Frameworks & Tools</h3>
+              <div className="professional-card skill-glow group">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i className="fas fa-layer-group text-2xl text-white" />
                   </div>
-                  <div className="space-y-4">
-                    {skills.frameworks.map((skill) => (
-                      <SkillBar
-                        key={skill.name}
-                        name={skill.name}
-                        level={skill.level}
-                        icon={skill.icon}
-                        color="green"
-                      />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="text-2xl font-bold gradient-text">Frameworks & Libraries</h3>
+                  <p className="text-muted-foreground text-sm mt-2">Modern development frameworks</p>
+                </div>
+                <div className="space-y-5">
+                  {skills.frameworks.map((skill: any) => (
+                    <SkillBar
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      icon={skill.icon}
+                      color="green"
+                    />
+                  ))}
+                </div>
+              </div>
 
-              {/* Other Skills */}
-              <Card className="glass-morphism border-0 shadow-lg hover:scale-105 transform transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <i className="fas fa-cogs text-5xl text-blue-600 dark:text-blue-400 mb-4" />
-                    <h3 className="text-2xl font-bold text-foreground">Other Skills</h3>
+              {/* Technical Expertise */}
+              <div className="professional-card skill-glow group">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i className="fas fa-brain text-2xl text-white" />
                   </div>
-                  <div className="space-y-4">
-                    {skills.tools.map((skill) => (
-                      <SkillBar
-                        key={skill.name}
-                        name={skill.name}
-                        level={skill.level}
-                        icon={skill.icon}
-                        color="blue"
-                      />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="text-2xl font-bold gradient-text">Technical Expertise</h3>
+                  <p className="text-muted-foreground text-sm mt-2">Advanced engineering skills</p>
+                </div>
+                <div className="space-y-5">
+                  {skills.tools.map((skill: any) => (
+                    <SkillBar
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      icon={skill.icon}
+                      color="blue"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -211,32 +231,42 @@ export const Portfolio: React.FC = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            <Card className="glass-morphism border-0 shadow-lg animate-slide-up">
-              <CardContent className="p-8 md:p-12">
-                <div className="flex items-start space-x-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
-                      <Briefcase className="text-2xl text-white w-8 h-8" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-primary mb-2">{experience.title}</h3>
-                    <h4 className="text-xl font-semibold mb-2 text-foreground">{experience.company}</h4>
-                    <div className="text-muted-foreground mb-4">{experience.duration} | {experience.location}</div>
-                    
-                    <div className="space-y-4">
-                      {experience.achievements.map((achievement, index) => (
-                        <div key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="text-green-500 mt-1 w-5 h-5 flex-shrink-0" />
-                          <p className="text-muted-foreground leading-relaxed">{achievement}</p>
-                        </div>
-                      ))}
-                    </div>
+          <div className="max-w-5xl mx-auto">
+            <div className="professional-card">
+              <div className="flex items-start space-x-8">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Briefcase className="text-white w-10 h-10" />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex-1">
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-bold gradient-text mb-2">{experience.title}</h3>
+                    <h4 className="text-xl font-semibold mb-3 text-foreground">{experience.company}</h4>
+                    <div className="flex flex-wrap gap-4 text-sm">
+                      <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-medium">
+                        {experience.duration}
+                      </span>
+                      <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full font-medium">
+                        {experience.location}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="grid gap-4">
+                    <h5 className="text-lg font-semibold text-foreground mb-4">Key Achievements & Impact</h5>
+                    {experience.achievements.map((achievement: string, index: number) => (
+                      <div key={index} className="flex items-start space-x-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                        <div className="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                          <CheckCircle className="text-white w-4 h-4" />
+                        </div>
+                        <p className="text-muted-foreground leading-relaxed text-sm">{achievement}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -249,8 +279,8 @@ export const Portfolio: React.FC = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {projects.map((project) => (
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {projects.map((project: any) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
@@ -266,14 +296,14 @@ export const Portfolio: React.FC = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {codingProfiles.map((profile) => (
+            {codingProfiles.map((profile: any) => (
               <CodingProfile
                 key={profile.name}
                 name={profile.name}
                 count={profile.count}
                 suffix={profile.suffix}
                 icon={profile.icon}
-                color={profile.color as any}
+                color={profile.color}
                 url={profile.url}
               />
             ))}
