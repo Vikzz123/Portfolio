@@ -16,8 +16,8 @@ export interface PersonalInfo {
 
 export const personalInfo: PersonalInfo = {
   name: "Vikas Singh",
-  title: "Senior Software Engineer | Full-Stack Developer | Aerospace Systems Expert",
-  tagline: "Distinguished software engineer with expertise in MERN stack, Java Spring Boot, and aerospace-grade systems. Proven track record in developing scalable applications and ensuring DO-178 B/C compliance in mission-critical environments.",
+  title: "Software Test Engineer | Full-Stack Developer | Aerospace Systems Expert",
+  tagline: "Software engineer with expertise in embedded systems testing, MERN stack development, and aerospace-grade systems. Experienced in DO-178 B/C compliance and developing scalable web applications.",
   location: "Bengaluru, Karnataka",
   phone: "+91-9829110883",
   email: "1dt19ec082vikas@gmail.com",
@@ -45,8 +45,8 @@ export interface About {
 export const about: About = {
   title: "Professional Excellence",
   description: [
-    "Distinguished software engineer with a robust foundation in Electronics and Communication Engineering from Dayananda Sagar Academy. My career trajectory demonstrates expertise across aerospace systems validation, full-stack development, and mission-critical software engineering.",
-    "With specialized knowledge in DO-178 B/C safety standards and comprehensive experience in enterprise-level software validation, I've successfully architected and delivered scalable web applications, secure APIs, and high-performance systems that serve diverse user bases."
+    "Software engineer with a strong foundation in Electronics and Communication Engineering from Dayananda Sagar Academy. My career demonstrates expertise across aerospace systems testing, full-stack development, and embedded software validation.",
+    "With specialized knowledge in DO-178 B/C safety standards and comprehensive experience in software testing, I've successfully developed and validated mission-critical aerospace software while also building scalable web applications and secure APIs."
   ],
   education: {
     degree: "B.E - Electronics and Communication",
@@ -67,29 +67,47 @@ export interface Skills {
   languages: Skill[];
   frameworks: Skill[];
   tools: Skill[];
+  developerTools: Skill[];
+  otherSkills: Skill[];
 }
 
 export const skills: Skills = {
   languages: [
-    { name: "JavaScript", level: 92, icon: "fab fa-js-square" },
-    { name: "Java", level: 88, icon: "fab fa-java" },
-    { name: "Python", level: 85, icon: "fab fa-python" },
-    { name: "TypeScript", level: 87, icon: "fas fa-code" },
-    { name: "C++", level: 80, icon: "fas fa-code" }
+    { name: "C", level: 85, icon: "fas fa-code" },
+    { name: "C++", level: 88, icon: "fas fa-code" },
+    { name: "Java", level: 90, icon: "fab fa-java" },
+    { name: "Python", level: 87, icon: "fab fa-python" },
+    { name: "JavaScript", level: 92, icon: "fab fa-js-square" }
   ],
   frameworks: [
-    { name: "React.js", level: 95, icon: "fab fa-react" },
-    { name: "Node.js", level: 90, icon: "fab fa-node-js" },
-    { name: "Spring Boot", level: 85, icon: "fas fa-leaf" },
-    { name: "Express.js", level: 88, icon: "fas fa-server" },
-    { name: "Next.js", level: 82, icon: "fas fa-rocket" }
+    { name: "ReactJS", level: 95, icon: "fab fa-react" },
+    { name: "NodeJS", level: 90, icon: "fab fa-node-js" },
+    { name: "ExpressJS", level: 88, icon: "fas fa-server" },
+    { name: "Tailwind CSS", level: 85, icon: "fab fa-css3-alt" },
+    { name: "Spring Boot", level: 82, icon: "fas fa-leaf" }
   ],
   tools: [
-    { name: "System Design", level: 88, icon: "fas fa-project-diagram" },
-    { name: "Database Design", level: 90, icon: "fas fa-database" },
-    { name: "DevOps & CI/CD", level: 82, icon: "fab fa-git-alt" },
-    { name: "Cloud Architecture", level: 78, icon: "fas fa-cloud" },
-    { name: "Performance Optimization", level: 85, icon: "fas fa-tachometer-alt" }
+    { name: "Data Structures", level: 90, icon: "fas fa-project-diagram" },
+    { name: "OOPs", level: 88, icon: "fas fa-cube" },
+    { name: "Linux & Bash", level: 85, icon: "fab fa-linux" },
+    { name: "SQL & RDBMS", level: 87, icon: "fas fa-database" },
+    { name: "Git & DevOps", level: 90, icon: "fab fa-git-alt" }
+  ],
+  developerTools: [
+    { name: "VS Code", level: 95, icon: "fas fa-code" },
+    { name: "MySQL Server", level: 88, icon: "fas fa-database" },
+    { name: "PyCharm", level: 85, icon: "fas fa-python" },
+    { name: "MongoDB Compass", level: 87, icon: "fas fa-database" },
+    { name: "Postman", level: 90, icon: "fas fa-paper-plane" },
+    { name: "IntelliJ", level: 82, icon: "fas fa-code" }
+  ],
+  otherSkills: [
+    { name: "Computer Networks", level: 85, icon: "fas fa-network-wired" },
+    { name: "Operating System", level: 88, icon: "fas fa-desktop" },
+    { name: "Bash Scripting", level: 82, icon: "fas fa-terminal" },
+    { name: "SQL & RDBMS", level: 87, icon: "fas fa-database" },
+    { name: "DevOps", level: 80, icon: "fas fa-server" },
+    { name: "Git & GitHub", level: 90, icon: "fab fa-github" }
   ]
 };
 
@@ -102,16 +120,17 @@ export interface Experience {
 }
 
 export const experience: Experience = {
-  title: "Senior Software Test Engineer",
+  title: "Software Test Engineer",
   company: "Moog India Technology Center",
   location: "Bengaluru, India",
   duration: "June 2023 — May 2024",
   achievements: [
-    "Architected and implemented comprehensive test coverage strategies achieving 100% functional requirement validation across aerospace-grade software systems.",
-    "Led critical code review processes for embedded C implementations, ensuring adherence to SDD specifications and identifying potential system vulnerabilities.",
-    "Specialized in DO-178 B/C safety-critical standards compliance for aerospace applications, contributing to mission-critical flight control systems.",
-    "Orchestrated execution of 50+ automated PTU test suites weekly using IBM RTRT, ensuring robust software validation and performance optimization.",
-    "Developed sophisticated defect tracking workflows using MATLAB and RTRT, reducing issue resolution time by 40% and improving system reliability."
+    "Analyzed and understood functional requirements defined in the Software Development Document (SDD) to ensure 100% test coverage of functional requirements.",
+    "Verified Embedded C code implementation against the SDD to identify and report any mismatches or deviations from functional requirements.",
+    "Experienced in embedded systems testing, including compliance with DO-178 B/C safety standards.",
+    "Developed test cases based on low-level requirements and created PTU test scripts, ensuring effective DO-178 B/C code coverage for safety-critical aerospace software.",
+    "Executed 50+ PTU (Program Test Unit) files weekly on target hardware utilizing IBM RTRT (Rational Test Real Time) for rigorous software validation and verification, ensuring robust performance and reliability.",
+    "Utilized tools like MATLAB and RTRT for test case management and defect tracking, ensuring timely resolution of issues."
   ]
 };
 
@@ -132,17 +151,17 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Enterprise Job Portal",
-    description: "Scalable full-stack job portal with microservices architecture, serving 500+ active users with real-time notifications and advanced analytics.",
-    longDescription: "Architected enterprise-grade job portal platform with JWT-based authentication, real-time messaging, advanced search algorithms, and comprehensive analytics dashboard supporting high-concurrency operations.",
-    technologies: ["MongoDB", "Express.js", "React", "Node.js", "JWT", "Socket.io", "Redis"],
+    title: "Job Portal",
+    description: "Full-stack job portal application using MERN stack with JWT authentication, enabling job posting, searching, and application management for 100+ users.",
+    longDescription: "Developed a comprehensive job portal application using MERN stack with secure RESTful APIs utilizing JWT-based authentication. Features include advanced search and filtering functionality, employer dashboard for managing job postings and applications, and user profile management with resume uploads.",
+    technologies: ["MongoDB", "Express.js", "React", "Node.js", "JWT"],
     features: [
-      "Microservices architecture with JWT authentication",
-      "Real-time messaging and notifications",
-      "Advanced search with Elasticsearch integration",
-      "Comprehensive analytics and reporting dashboard",
-      "Multi-role access control system",
-      "Automated resume parsing and matching"
+      "Secure JWT-based authentication system",
+      "Advanced search and filtering functionality",
+      "Employer dashboard for job management",
+      "User profile management with resume uploads",
+      "Application tracking system",
+      "Real-time job posting and application updates"
     ],
     year: "2025",
     icon: "fas fa-building",
@@ -152,37 +171,37 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    description: "High-performance e-commerce solution with advanced inventory management, payment gateway integration, and real-time analytics.",
-    longDescription: "Developed comprehensive e-commerce platform featuring advanced inventory management, multiple payment gateway integrations, real-time analytics, and optimized checkout flow.",
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+    title: "Shopping-Cart",
+    description: "Fully functional e-commerce shopping cart application using React with responsive design and modular components.",
+    longDescription: "Developed a comprehensive e-commerce shopping cart application using React with modular components for product listing, cart management, and checkout. Implemented responsive and interactive UI using TailwindCSS for optimal user experience.",
+    technologies: ["HTML", "CSS", "Tailwind", "React"],
     features: [
-      "Advanced inventory management system",
-      "Multiple payment gateway integration",
-      "Real-time sales analytics and reporting",
-      "Automated order processing workflow",
-      "Progressive Web App capabilities",
-      "Advanced caching and performance optimization"
+      "Modular component architecture",
+      "Product listing and management",
+      "Shopping cart functionality",
+      "Responsive design with TailwindCSS",
+      "Interactive user interface",
+      "Checkout process management"
     ],
     year: "2024",
-    icon: "fas fa-store",
+    icon: "fas fa-shopping-cart",
     color: "green",
     githubUrl: "#",
     demoUrl: "#"
   },
   {
     id: 3,
-    title: "AI-Powered Medical Diagnostics",
-    description: "Advanced machine learning system for medical diagnosis with 96% accuracy, serving healthcare professionals with predictive analytics.",
-    longDescription: "Engineered sophisticated AI-powered diagnostic system using ensemble machine learning models, achieving 96% accuracy in medical predictions with comprehensive data visualization and professional reporting.",
-    technologies: ["Python", "TensorFlow", "Flask", "PostgreSQL", "Docker", "AWS"],
+    title: "Prediction of Parkinson's Disease using ML",
+    description: "Machine learning system for Parkinson's disease prediction using spiral drawings with 96% accuracy rate.",
+    longDescription: "Developed a user-friendly HTML form for uploading spiral drawings and inputting crucial information, which improved data acquisition for feature extraction and predictive modeling, achieving a 96% data accuracy rate. The system processes spiral drawings to extract features and uses the Random Forest model for prediction.",
+    technologies: ["HTML", "CSS", "Python", "Flask", "Google Colab"],
     features: [
-      "Ensemble ML models with 96% accuracy",
-      "Advanced feature extraction algorithms",
-      "Professional diagnostic reporting system",
-      "Real-time prediction capabilities",
-      "Secure patient data management",
-      "Integration with healthcare systems"
+      "User-friendly HTML form interface",
+      "Spiral drawing upload and processing",
+      "Feature extraction algorithms",
+      "Random Forest ML model",
+      "96% prediction accuracy",
+      "Web-based result display"
     ],
     year: "2023",
     icon: "fas fa-heartbeat",
@@ -236,18 +255,44 @@ export const codingProfiles: CodingProfile[] = [
   }
 ];
 
-export const certifications: string[] = [
-  "Advanced Problem Solving & SQL Optimization - HackerRank",
-  "Full-Stack JavaScript Development - Udemy",
-  "Advanced Data Structures & Algorithms - Coursera",
-  "Object-Oriented Design Patterns - Udemy",
-  "Software Engineering Excellence Program - Goldman Sachs"
+export interface Certification {
+  name: string;
+  url: string;
+  platform: string;
+}
+
+export const certifications: Certification[] = [
+  {
+    name: "Problem Solving & SQL",
+    url: "https://www.hackerrank.com/certificates/",
+    platform: "HackerRank"
+  },
+  {
+    name: "HTML, CSS & JavaScript",
+    url: "https://www.udemy.com/certificate/",
+    platform: "Udemy"
+  },
+  {
+    name: "Data Structures",
+    url: "https://www.coursera.org/account/accomplishments/",
+    platform: "Coursera"
+  },
+  {
+    name: "OOPs Concept",
+    url: "https://www.udemy.com/certificate/",
+    platform: "Udemy"
+  },
+  {
+    name: "Software Engineering Job Simulation",
+    url: "https://www.forage.com/virtual-internships/",
+    platform: "Goldman Sachs"
+  }
 ];
 
 export const typingPhrases: string[] = [
-  "Senior Software Engineer",
-  "Full-Stack Architect", 
-  "System Design Expert",
-  "Performance Optimization Specialist",
-  "Enterprise Solution Developer"
+  "Software Test Engineer",
+  "Full-Stack Developer", 
+  "Embedded Systems Expert",
+  "MERN Stack Developer",
+  "Aerospace Software Engineer"
 ];

@@ -74,11 +74,14 @@ export const Portfolio: React.FC = () => {
         </div>
         
         {/* Professional scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center animate-bounce">
-            <span className="text-white/70 text-sm mb-2 font-medium">Explore More</span>
-            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center relative">
-              <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse"></div>
+        <div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
+          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <div className="flex flex-col items-center animate-bounce group-hover:animate-none group-hover:scale-110 transition-transform duration-300">
+            <span className="text-white/70 text-sm mb-2 font-medium group-hover:text-white transition-colors duration-300">Explore More</span>
+            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center relative group-hover:border-white/60 transition-colors duration-300">
+              <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse group-hover:animate-bounce"></div>
             </div>
           </div>
         </div>
@@ -152,7 +155,7 @@ export const Portfolio: React.FC = () => {
           </div>
           
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-8">
               {/* Programming Languages */}
               <div className="professional-card skill-glow group">
                 <div className="text-center mb-8">
@@ -214,6 +217,50 @@ export const Portfolio: React.FC = () => {
                       level={skill.level}
                       icon={skill.icon}
                       color="blue"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Developer Tools */}
+              <div className="professional-card skill-glow group">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i className="fas fa-tools text-2xl text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold gradient-text">Developer Tools</h3>
+                  <p className="text-muted-foreground text-sm mt-2">Development environment & tools</p>
+                </div>
+                <div className="space-y-5">
+                  {skills.developerTools.map((skill: any) => (
+                    <SkillBar
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      icon={skill.icon}
+                      color="orange"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Other Skills */}
+              <div className="professional-card skill-glow group">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i className="fas fa-cogs text-2xl text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold gradient-text">Other Skills</h3>
+                  <p className="text-muted-foreground text-sm mt-2">Additional technical expertise</p>
+                </div>
+                <div className="space-y-5">
+                  {skills.otherSkills.map((skill: any) => (
+                    <SkillBar
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      icon={skill.icon}
+                      color="pink"
                     />
                   ))}
                 </div>
@@ -311,6 +358,39 @@ export const Portfolio: React.FC = () => {
         </div>
       </section>
 
+      {/* Certifications Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Certifications</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certifications.map((certification: any, index: number) => (
+                <div 
+                  key={index} 
+                  className="professional-card hover:scale-105 transition-transform duration-300 cursor-pointer group"
+                  onClick={() => window.open(certification.url, '_blank')}
+                >
+                  <div className="text-center p-6">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-certificate text-2xl text-white" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground leading-relaxed mb-2">{certification.name}</h3>
+                    <p className="text-sm text-muted-foreground">{certification.platform}</p>
+                    <div className="mt-3 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Click to view certificate →
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
@@ -331,7 +411,7 @@ export const Portfolio: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="text-center">
             <div className="text-3xl font-bold gradient-text mb-4">{personalInfo.name}</div>
-            <p className="text-muted-foreground mb-6">Software Developer | Problem Solver | Tech Enthusiast</p>
+            <p className="text-muted-foreground mb-6">Software Test Engineer | Full-Stack Developer | Aerospace Systems Expert</p>
             <div className="flex justify-center space-x-6 mb-8">
               <a href="#home" className="hover:text-primary transition-colors">Home</a>
               <a href="#about" className="hover:text-primary transition-colors">About</a>
